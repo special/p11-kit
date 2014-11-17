@@ -7,6 +7,7 @@ License:        BSD
 URL:            http://p11-glue.freedesktop.org/p11-kit.html
 Source0:        http://p11-glue.freedesktop.org/releases/p11-kit-%{version}.tar.gz
 #Source1:        trust-extract-compat
+Patch0:         0001-Remove-serial-tests-flag-to-fix-automake-1.11.patch
 BuildRequires:  libtasn1-devel >= 2.3
 BuildRequires:  nss-softokn-freebl
 BuildRequires:  libffi-devel
@@ -40,6 +41,7 @@ contains certificate anchors and black lists.
 
 %prep
 %setup -q -n %{name}-%{version}/%{name}
+%patch0 -p1
 
 %build
 # These paths are the source paths that  come from the plan here:
